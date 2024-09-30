@@ -1,0 +1,14 @@
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\bin\Debug\net8.0\AttackCLI.exe
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\bin\Debug\net8.0\AttackCLI.deps.json
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\bin\Debug\net8.0\AttackCLI.runtimeconfig.json
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\bin\Debug\net8.0\AttackCLI.dll
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\bin\Debug\net8.0\AttackCLI.pdb
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.AssemblyInfoInputs.cache
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.AssemblyInfo.cs
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.csproj.CoreCompileInputs.cache
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.dll
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\refint\AttackCLI.dll
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.pdb
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.genruntimeconfig.cache
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\ref\AttackCLI.dll
