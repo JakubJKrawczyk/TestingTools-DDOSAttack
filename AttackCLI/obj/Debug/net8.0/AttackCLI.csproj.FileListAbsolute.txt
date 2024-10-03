@@ -12,3 +12,7 @@ C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\refint\AttackC
 C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.pdb
 C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.genruntimeconfig.cache
 C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\ref\AttackCLI.dll
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\bin\Debug\net8.0\RestSharp.dll
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.csproj.AssemblyReference.cache
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.sourcelink.json
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.csproj.Up2Date

