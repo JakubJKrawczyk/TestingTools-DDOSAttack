@@ -11,4 +11,11 @@
       <PackageReference Include="RestSharp" Version="112.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="image.jpg" />
+      <EmbeddedResource Include="image.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </EmbeddedResource>
+    </ItemGroup>
+
 </Project>

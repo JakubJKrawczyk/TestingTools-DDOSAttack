@@ -16,3 +16,4 @@ C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\bin\Debug\net8.0\RestSharp.dll
 C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.csproj.AssemblyReference.cache
 C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.sourcelink.json
 C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\obj\Debug\net8.0\AttackCLI.csproj.Up2Date
+C:\Users\Jakub\RiderProjects\AttackCLI\AttackCLI\bin\Debug\net8.0\image.jpg

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AttackCLI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1be922970cb7b32203aee11c3c870c3371bee2a3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab58ef9d9c7d1be7e3305773d1096f1a0f25cd20")]
 [assembly: System.Reflection.AssemblyProductAttribute("AttackCLI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AttackCLI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
